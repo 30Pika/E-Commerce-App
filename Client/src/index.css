@@ -3,7 +3,7 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
-  font-family: 'Playfair Display',sans-serif;
+  font-family: 'Red Hat Display',sans-serif;
 }
 :root{
   --Champagne-color:#E4D4C8;
@@ -12,13 +12,18 @@
   --Dark-color:#D0B49F;
 }
 body{
-  background-color: var(--Champagne-color);
+  background-color: var(--Dark-color-color);
   color:var(--Black-color);
 }
 
 /* font-family: 'Poppins', 'Playfair Display', serif, 'Kaushan Script', cursive,
 'Red Hat Display', sans-serif; */
 
+/* =========================Navbar Css ======================= */
+
+.navbar{
+  background: var(--Champagne-color);
+}
 
 .active:hover{
   border-bottom: 1px solid black;

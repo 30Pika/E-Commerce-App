@@ -37,7 +37,7 @@ const Register = () => {
                         <div className="col-md-6 offset-md-3 ">
                             <form onSubmit={handleform}>
                                 <div className='d-flex justify-content-center '>
-                                    <p className='fs-3 fw-bold text-dec-underline'>Sing Up</p>
+                                    <p className='fs-3 fw-bold text-dec-underline'>Sign Up</p>
                                 </div>
                                 <div className="mb-1">
                                     <label for="exampleInputName" className="form-label fw-bold">User Name</label>

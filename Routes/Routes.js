@@ -2,8 +2,13 @@ import express from "express";
 import VerifyToken from "../Middleware/JWTVerifyToken.js"
 import RegisterCon from "../Controller/RegisterCon.js";
 import LoginCon from "../Controller/LoginCon.js";
-// import TestCon from "../Controller/TestCon.js";
-// import isAdmin from "../Middleware/AdminAccess.js";
+import ProductsCon from "../Controller/ProductsCon.js";
+import ProductListCon from "../Controller/ProductListCon.js";
+import ProductUpdateCon from "../Controller/ProductUpdateCon.js";
+import ProductDeleteCon from "../Controller/ProductDeleteCon.js";
+import ProductSearchCon from "../Controller/ProductSearchCon.js";
+import BuyProductCon from "../Controller/BuyProductCon.js";
+import BuyProductQutCon from "../Controller/BuyProductQutCon.js";
 
 //Router Object
 const router = express.Router();
@@ -15,7 +20,25 @@ router.post("/register", RegisterCon);
 //Login Route Api
 router.post("/login", LoginCon);
 
-//test Route Api
-router.get("/test", VerifyToken);
+// Product Storing Api
+router.post("/product", VerifyToken, ProductsCon);
+
+//Product List Fetching Api
+router.get("/product", VerifyToken, ProductListCon);
+
+//Product List Update Api
+router.put("/product/:id", VerifyToken, ProductUpdateCon);
+
+//Product List Delete Api
+router.delete("/product/:id", VerifyToken, ProductDeleteCon);
+
+//Product List Search Api
+router.get("/product/search/:key", VerifyToken, ProductSearchCon);
+
+//Buy Product Api
+router.post("/product/buy", VerifyToken, BuyProductCon);
+
+//Buy Product Update Quntity Api
+router.put("/product/buy/:id", VerifyToken, BuyProductQutCon);
 
 export default router;
