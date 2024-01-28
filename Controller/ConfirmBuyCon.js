@@ -20,10 +20,7 @@ const BuyProductCon = async (req, res) => {
             })
         }
     } catch (error) {
-        res.send({
-            status: false,
-            message: `Error From Buy Product Storing Data Controller : ${error}`
-        })
+        res.send(`Error From Confirm Buy Product Controller : ${error}`)
     }
 }
 

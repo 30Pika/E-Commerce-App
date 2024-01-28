@@ -7,7 +7,7 @@ import ProductListCon from "../Controller/ProductListCon.js";
 import ProductUpdateCon from "../Controller/ProductUpdateCon.js";
 import ProductDeleteCon from "../Controller/ProductDeleteCon.js";
 import ProductSearchCon from "../Controller/ProductSearchCon.js";
-import BuyProductCon from "../Controller/BuyProductCon.js";
+import BuyProductCon from "../Controller/ConfirmBuyCon.js";
 import BuyProductQutCon from "../Controller/BuyProductQutCon.js";
 
 //Router Object
@@ -33,12 +33,15 @@ router.put("/product/:id", VerifyToken, ProductUpdateCon);
 router.delete("/product/:id", VerifyToken, ProductDeleteCon);
 
 //Product List Search Api
-router.get("/product/search/:key", VerifyToken, ProductSearchCon);
+router.get("/product/search/:key", ProductSearchCon);
 
-//Buy Product Api
-router.post("/product/buy", VerifyToken, BuyProductCon);
+//Show Product List For Buy Api
+router.get("/buyproduct", ProductListCon);
+
+//Confirm Buy Product List Api
+router.post("/buyproduct", );
 
 //Buy Product Update Quntity Api
-router.put("/product/buy/:id", VerifyToken, BuyProductQutCon);
+router.put("/buyproduct/updatequt/:id", VerifyToken, BuyProductQutCon);
 
 export default router;

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import Layout from '../../Commponent/Layout/Layout';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const Login = () => {
 
+    const navigate = useNavigate();
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
 
@@ -17,16 +18,16 @@ const Login = () => {
                 email: email,
                 password: password
             }).then((res) => {
-                if (res) {
+                if (res.data.user) {
                     localStorage.setItem("user", JSON.stringify(res.data.user));
                     localStorage.setItem("token", JSON.stringify(res.data.token));
                     const msg = JSON.stringify(res.data.status);
-                    if (user.admin_email === "admin@gmail.com") {
-                        navigate("/AddProduct");
-                    } else {
-                        navigate("/Buy");
-                    }
                     alert(`User Login Successfully... Status : ${msg}`);
+                    navigate("/Buy");
+                } else {
+                    localStorage.setItem("user", JSON.stringify(res.data.admin));
+                    localStorage.setItem("token", JSON.stringify(res.data.token));
+                    navigate("/AddProduct");
                 }
             }).catch((err) => {
                 console.log(`Error From Login Page ${err}`)

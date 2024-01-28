@@ -10,14 +10,15 @@ const ProductList = () => {
     const [Empty, setEmpty] = useState("");
 
     function getData() {
-        axios.get("http://localhost:2030/E-Commerce/api/product",
-            {
-                headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-            }).then((res) => {
-                setdata(res.data.data);
-            }).catch((err) => {
-                console.log(`Error From Product List Page ${err}`);
-            })
+        axios.get("http://localhost:2030/E-Commerce/api/buyproduct"
+            // {
+            //     headers: { authorization: JSON.parse(localStorage.getItem('token')) }
+            // }
+        ).then((res) => {
+            setdata(res.data.data);
+        }).catch((err) => {
+            console.log(`Error From Product List Page ${err}`);
+        })
     }
     useEffect(() => {
         getData();
@@ -26,16 +27,17 @@ const ProductList = () => {
     const Search = async (event) => {
         const key = event.target.value;
         setEmpty(key);
-        axios.get(`http://localhost:2030/E-Commerce/api/product/search/${key}`,
-            {
-                headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-            }).then((res) => {
-                if (res.data.data) {
-                    setdata(res.data.data);
-                }
-            }).catch((err) => {
-                console.log(`Error From Search Block Product List Page ${err}`);
-            })
+        await axios.get(`http://localhost:2030/E-Commerce/api/product/search/${key}`
+            // {
+            //     headers: { authorization: JSON.parse(localStorage.getItem('token')) }
+            // }
+        ).then((res) => {
+            if (res.data.data) {
+                setdata(res.data.data);
+            }
+        }).catch((err) => {
+            console.log(`Error From Search Block Product List Page ${err}`);
+        })
     }
 
     const Reset = () => {

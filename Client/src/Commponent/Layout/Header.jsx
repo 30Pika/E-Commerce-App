@@ -24,9 +24,6 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active fs-5 fw-bold" aria-current="page" to="/">Home</Link>
                             </li>
-                            {
-
-                            }
                             <li className="nav-item">
                                 <Link className="nav-link active fs-5 fw-bold" aria-current="page" to="/Buy">
                                     Products
@@ -35,19 +32,26 @@ const Header = () => {
                             {
                                 auth ?
                                     <>
-
-                                        <li className="nav-item ">
-                                            <Link style={{ width: "135px" }} className="nav-link active fs-5 fs-bold"
-                                                to="/AddProduct">Add Product</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link style={{ width: "130px" }} className="nav-link active fs-5 fs-bold"
-                                                to="/ProductList">Product List</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link active fw-bold fs-5"
-                                                to="/Cart">Cart</Link>
-                                        </li>
+                                        {
+                                            auth.admin_email === "admin@gmail.com" ?
+                                                <>
+                                                    <li className="nav-item ">
+                                                        <Link style={{ width: "135px" }} className="nav-link active fs-5 fs-bold"
+                                                            to="/AddProduct">Add Product</Link>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <Link style={{ width: "130px" }} className="nav-link active fs-5 fs-bold"
+                                                            to="/ProductList">Product List</Link>
+                                                    </li>
+                                                </>
+                                                :
+                                                <>
+                                                    <li className="nav-item">
+                                                        <Link className="nav-link active fw-bold fs-5"
+                                                            to="/Cart">Cart</Link>
+                                                    </li>
+                                                </>
+                                        }
                                         <li className="nav-item">
                                             <Link onClick={Logout}
                                                 className="nav-link text-dark fs-5 fw-bold" to="/Login">

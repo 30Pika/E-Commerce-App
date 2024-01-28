@@ -24,7 +24,7 @@ const StoreBuyProduct = () => {
 
     const bill = Number(buydata.price) * quntity;
 
-    await axios.post("http://localhost:2030/E-Commerce/api/product/buy", {
+    await axios.post("http://localhost:2030/E-Commerce/api/buyproduct", {
       userId: auth._id,
       name: buydata.name,
       category: buydata.category,
@@ -48,7 +48,7 @@ const StoreBuyProduct = () => {
 
     const setQut = Number(buydata.quntity) - Number(quntity);
 
-    await axios.put(`http://localhost:2030/E-Commerce/api/product/buy/${buydata._id}`, {
+    await axios.put(`http://localhost:2030/E-Commerce/api/buyproduct/updatequt/${buydata._id}`, {
       quntity: setQut
     }, {
       headers: { authorization: JSON.parse(localStorage.getItem('token')) }
@@ -57,6 +57,10 @@ const StoreBuyProduct = () => {
     }).catch((err) => {
       console.log(`Error From Confirm Page Quntity Modification : ${err}`);
     })
+  }
+
+  const CancelConfirmBuy = () => {
+    localStorage.removeItem("buydata");
   }
 
   return (
@@ -86,7 +90,7 @@ const StoreBuyProduct = () => {
                         <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
                           onClick={() => ConfirmBuy()}>
                           Confirm Buy</button></Link>
-                        <Link to="/"><button className='btn btn-danger'>Cancel</button></Link>
+                        <Link to="/" onClick={() => CancelConfirmBuy()} className='btn btn-danger'>Cancel</Link>
                       </div>
                     </div>
                   </div>

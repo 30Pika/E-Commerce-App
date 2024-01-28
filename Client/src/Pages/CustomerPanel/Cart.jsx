@@ -8,16 +8,17 @@ import Layout from '../../Commponent/Layout/Layout';
 const Cart = () => {
 
   const auth = JSON.parse(localStorage.getItem("user"));
-  // const id = auth._id;
+  const id = auth._id;
   const [data, setData] = useState([]);
 
   const BuyData = async () => {
-    await axios.get(`http://localhost:2030/CrudApp/buy/${id}`)
-      .then((res) => {
-        setData(res.data);
-      }).catch((err) => {
-        console.log(`Error From Cart Page : ${err}`);
-      })
+    await axios.get(`http://localhost:2030/E-Commerce/api/buyproduct/${id}`, {
+      headers: { authorization: JSON.parse(localStorage.getItem('token')) }
+    }).then((res) => {
+      setData(res.data);
+    }).catch((err) => {
+      console.log(`Error From Cart Page : ${err}`);
+    })
   }
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const Cart = () => {
   return (
     <>
       <Layout>
-        <div className="container-fluid g-0">
+        <div className="container-fluid">
           <div className="row">
             <div className="col">
               <div className='d-flex justify-content-center position-relative '>

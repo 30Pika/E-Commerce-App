@@ -1,8 +1,8 @@
-import BuyProductSche from "../Module/BuyProductSche.js";
+import ProductsSche from "../Module/ProductsSche.js";
 
 const BuyProductQutCon = async (req, res) => {
     try {
-        const result = await BuyProductSche.updateOne(
+        const result = await ProductsSche.updateOne(
             { _id: req.params.id },
             {
                 $set: req.body,
