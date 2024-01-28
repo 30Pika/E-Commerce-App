@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
 
-    const auth = localStorage.getItem("user");
+    const auth = JSON.parse(localStorage.getItem("user"));
 
     const Logout = () => {
         localStorage.clear();

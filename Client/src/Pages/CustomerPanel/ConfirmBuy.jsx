@@ -90,7 +90,7 @@ const StoreBuyProduct = () => {
                         <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
                           onClick={() => ConfirmBuy()}>
                           Confirm Buy</button></Link>
-                        <Link to="/" onClick={() => CancelConfirmBuy()} className='btn btn-danger'>Cancel</Link>
+                        <Link to="/Buy" onClick={() => CancelConfirmBuy()} className='btn btn-danger'>Cancel</Link>
                       </div>
                     </div>
                   </div>

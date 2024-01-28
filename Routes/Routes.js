@@ -7,8 +7,9 @@ import ProductListCon from "../Controller/ProductListCon.js";
 import ProductUpdateCon from "../Controller/ProductUpdateCon.js";
 import ProductDeleteCon from "../Controller/ProductDeleteCon.js";
 import ProductSearchCon from "../Controller/ProductSearchCon.js";
-import BuyProductCon from "../Controller/ConfirmBuyCon.js";
+import ConfirmBuyCon from "../Controller/ConfirmBuyCon.js";
 import BuyProductQutCon from "../Controller/BuyProductQutCon.js";
+import CartBuyProductCon from "../Controller/CartBuyProductCon.js";
 
 //Router Object
 const router = express.Router();
@@ -39,9 +40,12 @@ router.get("/product/search/:key", ProductSearchCon);
 router.get("/buyproduct", ProductListCon);
 
 //Confirm Buy Product List Api
-router.post("/buyproduct", );
+router.post("/buyproduct", VerifyToken, ConfirmBuyCon);
 
 //Buy Product Update Quntity Api
 router.put("/buyproduct/updatequt/:id", VerifyToken, BuyProductQutCon);
+
+//Show Product List For Buy Api
+router.get("/buyproduct/cart/:id", CartBuyProductCon);
 
 export default router;
