@@ -31,6 +31,7 @@ const AddProduct = () => {
                 if (res) {
                     alert("Add Product Successfully...");
                     setname(""); setprice(""); setcategory(""); setcompany(""); setsubcategory("");
+                    setquntity("");
                 }
             }).catch((err) => {
                 console.log(`Error From Add Product Page ${err}`);

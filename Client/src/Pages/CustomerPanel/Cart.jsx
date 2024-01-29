@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     BuyData();
-  });
+  }, []);
 
   return (
     <>
@@ -57,6 +57,7 @@ const Cart = () => {
                                     <h6>Company : {itm.company}</h6>
                                     <h6>Categroy : {itm.category}</h6>
                                     <h6>Buying Qut : {itm.quntity}</h6>
+                                    <h6>Status : {itm.status}</h6>
                                     <h6>Total Bill : {itm.bill}</h6>
                                   </div>
                                   <div className="d-flex justify-content-around">

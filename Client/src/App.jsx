@@ -14,6 +14,7 @@ import ProductList from "./Pages/AdminPanel/ProductList";
 import Update from "./Pages/AdminPanel/Update";
 import Cart from "./Pages/CustomerPanel/Cart";
 import ConfirmBuy from "./Pages/CustomerPanel/ConfirmBuy";
+import ProductStatus from "./Pages/AdminPanel/ProductStatus";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Update" element={<Update />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/ConfirmBuy" element={<ConfirmBuy />} />
+          <Route path="/ProductStatus" element={<ProductStatus />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Policy" element={<Policy />} />

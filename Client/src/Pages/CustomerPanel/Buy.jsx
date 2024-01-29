@@ -45,8 +45,8 @@ const ProductList = () => {
         setEmpty("");
     }
 
-    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity) => {
-        const buydata = { _id, name, company, category, subcategory, price, quntity };
+    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity, status) => {
+        const buydata = { _id, name, company, category, subcategory, price, quntity, status };
         localStorage.setItem("buydata", JSON.stringify(buydata));
     }
 
@@ -80,7 +80,8 @@ const ProductList = () => {
                                                         <div className="d-flex justify-content-around">
                                                             <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
                                                             <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
-                                                                onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category, itm.subcategory, itm.price, itm.quntity)}>
+                                                                onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
+                                                                    itm.subcategory, itm.price, itm.quntity, itm.status)}>
                                                                 Buy</button></Link>
                                                         </div>
                                                     </div>

@@ -43,6 +43,10 @@ const Header = () => {
                                                         <Link style={{ width: "130px" }} className="nav-link active fs-5 fs-bold"
                                                             to="/ProductList">Product List</Link>
                                                     </li>
+                                                    <li className="nav-item">
+                                                        <Link style={{ width: "130px" }} className="nav-link active fs-5 fs-bold"
+                                                            to="/ProductStatus">All Orders</Link>
+                                                    </li>
                                                 </>
                                                 :
                                                 <>

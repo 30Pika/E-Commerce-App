@@ -14,7 +14,7 @@ const StoreBuyProduct = () => {
 
   useEffect(() => {
     setBuydata(JSON.parse(localStorage.getItem("buydata")));
-  })
+  }, [])
 
   const handleform = (e) => {
     e.preventDefault();
@@ -32,7 +32,8 @@ const StoreBuyProduct = () => {
       company: buydata.company,
       price: buydata.price,
       quntity: quntity,
-      bill: bill
+      bill: bill,
+      status: buydata.status
     },
       {
         headers: { authorization: JSON.parse(localStorage.getItem('token')) }
