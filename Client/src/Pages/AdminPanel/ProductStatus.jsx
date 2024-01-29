@@ -75,9 +75,18 @@ const ProductList = () => {
                                                         <td>{itm.bill}</td>
                                                         <td>{itm.status}</td>
                                                         <td>
-                                                            <div className="btn btn-warning " onClick={(e) => changeStatus("pending", itm._id)}>Pending</div>
-                                                            <div className="btn btn-success ms-1" onClick={(e) => changeStatus("process", itm._id)}>process</div>
-                                                            <div className="btn btn-success ms-1" onClick={(e) => changeStatus("delivered", itm._id)}>Delivered</div>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-light  dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    Status List
+                                                                </button>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                                    <li onClick={(e) => changeStatus("Pending", itm._id)}>Pending</li>
+                                                                    <li onClick={(e) => changeStatus("Process", itm._id)}>process</li>
+                                                                    <li onClick={(e) => changeStatus("Dispatched", itm._id)}>Dispatched</li>
+                                                                    <li onClick={(e) => changeStatus("On Road", itm._id)}>On Road</li>
+                                                                    <li onClick={(e) => changeStatus("Delivered", itm._id)}>Delivered</li>
+                                                                </ul>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </>
