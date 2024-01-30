@@ -15,6 +15,10 @@ import Update from "./Pages/AdminPanel/Update";
 import Cart from "./Pages/CustomerPanel/Cart";
 import ConfirmBuy from "./Pages/CustomerPanel/ConfirmBuy";
 import ProductStatus from "./Pages/AdminPanel/ProductStatus";
+import Category from "./Pages/CustomerPanel/Category";
+import SubCategory from "./Pages/CustomerPanel/SubCategory";
+import Companys from "./Pages/CustomerPanel/Companys";
+import Product from "./Pages/CustomerPanel/Product";
 
 function App() {
 
@@ -25,6 +29,10 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/Buy" element={<Buy />} />
+        <Route path="/Product" element={<Product />} />
+        <Route path="/Category" element={<Category />} />
+        <Route path="/SubCategory" element={<SubCategory />} />
+        <Route path="/Companys" element={<Companys />} />
         <Route element={<PrivateCom />} >
           <Route path="/AddProduct" element={<AddProduct />} />
           <Route path="/ProductList" element={<ProductList />} />

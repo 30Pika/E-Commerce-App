@@ -58,7 +58,7 @@ const Header = () => {
                                         }
                                         <li className="nav-item">
                                             <Link onClick={Logout}
-                                                className="nav-link text-dark fs-5 fw-bold" to="/Login">
+                                                className="nav-link text-dark fs-5 fw-bold" to="/">
                                                 Logout...</Link>
                                         </li>
                                     </>

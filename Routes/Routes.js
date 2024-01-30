@@ -12,6 +12,9 @@ import BuyProductQutCon from "../Controller/BuyProductQutCon.js";
 import CartBuyProductCon from "../Controller/CartBuyProductCon.js";
 import AllOrderCon from "../Controller/AllOrderCon.js";
 import ChangeStatusCon from "../Controller/ChangeStatusCon.js";
+import FetchCategory from "../Controller/FetchCategory.js";
+import FetchSubCategory from "../Controller/FetchSubCategory.js";
+import FetchProduct from "../Controller/FetchProduct.js";
 
 //Router Object
 const router = express.Router();
@@ -53,7 +56,16 @@ router.get("/buyproduct/cart/:id", VerifyToken, CartBuyProductCon);
 //Show All Order Product List For Buy Api
 router.get("/buyproduct/status", VerifyToken, AllOrderCon);
 
-//Update Status Order Product For Buy Api
+//Update Status Order Product  Api
 router.put("/buyproduct/update_status/:id", VerifyToken, ChangeStatusCon);
+
+//Fetch Subcategorys Api
+router.get("/buyproduct/category/:key", FetchCategory);
+
+//Fetch Companys Api
+router.get("/buyproduct/subcategory/:key", FetchSubCategory);
+
+//Fetch Companys after product Api
+router.get("/buyproduct/product/:key", FetchProduct);
 
 export default router;

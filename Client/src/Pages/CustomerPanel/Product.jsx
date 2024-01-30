@@ -1,23 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import bag from "../../img/bag.jpg";
 import Layout from '../../Commponent/Layout/Layout';
 
-const ProductList = () => {
+const Category = () => {
 
     const [data, setdata] = useState([]);
     const [Empty, setEmpty] = useState("");
+    const navigate = useNavigate();
+    const key = localStorage.getItem("loopcompany");
 
     function getData() {
-        axios.get("http://localhost:2030/E-Commerce/api/buyproduct"
-            // {
-            //     headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-            // }
+        axios.get(`http://localhost:2030/E-Commerce/api/buyproduct/product/${key}`
         ).then((res) => {
             setdata(res.data.data);
         }).catch((err) => {
-            console.log(`Error From Buy Product List Page ${err}`);
+            console.log(`Error From Loop Product List Page ${err}`);
         })
     }
     useEffect(() => {
@@ -28,9 +27,6 @@ const ProductList = () => {
         const key = event.target.value;
         setEmpty(key);
         await axios.get(`http://localhost:2030/E-Commerce/api/product/search/${key}`
-            // {
-            //     headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-            // }
         ).then((res) => {
             if (res.data.data) {
                 setdata(res.data.data);
@@ -55,6 +51,13 @@ const ProductList = () => {
             <Layout>
                 <div className="container">
                     <div className="row">
+                        <div className='d-flex justify-content-center position-relative '>
+                            <div className='position-absolute top-0 start-0 fs-3 fw-bold'>
+                                <Link to="/SubCategory" className='text-decoration-none text-dark'>
+                                    <i class='bx bx-left-arrow-alt'>Back</i>
+                                </Link>
+                            </div>
+                        </div>
                         <div className="col">
                             <h1 className='text-center'>Products</h1>
                             <div className="d-flex flex-row mb-3">
@@ -99,4 +102,4 @@ const ProductList = () => {
     )
 }
 
-export default ProductList;
+export default Category
