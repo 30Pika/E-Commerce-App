@@ -40,10 +40,10 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/ConfirmBuy" element={<ConfirmBuy />} />
           <Route path="/ProductStatus" element={<ProductStatus />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Policy" element={<Policy />} />
         </Route>
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Policy" element={<Policy />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

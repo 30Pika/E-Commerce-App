@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../Commponent/Layout/Layout'
 import Category from './CustomerPanel/Category'
 import homeimg from "../img/homeimg.jpg";
+import About from './About';
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
         </div>
         <Category />
         <div className='mb-5'></div>
+        <About />
       </Layout>
     </>
   )
