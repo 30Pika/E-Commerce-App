@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg border-2 border-bottom border-dark nav shadow ">
+            <nav className="navbar navbar-expand-lg border-2 border-bottom border-dark shadow">
                 <div className="container-fluid ">
                     <h3 className="fw-bold ms-3"><i class='bx bxl-shopify fs-2 fw-bold me-2' ></i>E-Commerce App</h3>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"

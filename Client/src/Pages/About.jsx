@@ -6,11 +6,8 @@ const About = () => {
   return (
     <>
       {/* <Layout > */}
-      <div className="row g-0 contactus">
-        <div className="col-md-5">
-          <img src={img} style={{ height: "50vh" }} className='rounded shadow About'></img>
-        </div>
-        <div className="col-md-4 offset-md-1 text-justify">
+      <div className="row g-0 contactus bg-light">
+        <div className="col-md-4 text-justify">
           <h3>Online-Bady</h3>
           <p className="text-justify mt-2">
             Welcome to Online-Bady – your destination for
@@ -26,6 +23,9 @@ const About = () => {
           <p>We're more than just a store; we're a community. Every purchase supports our mission
             to Everyone Everywere. Thank you for choosing Onlie-Bady –
             let's make every shopping experience memorable!</p>
+        </div>
+        <div className="col-md-5 offset-md-1">
+          <img src={img} style={{ height: "50vh" }} className='rounded shadow About'></img>
         </div>
       </div>
       {/* </Layout> */}

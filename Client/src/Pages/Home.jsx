@@ -3,6 +3,7 @@ import Layout from '../Commponent/Layout/Layout'
 import Category from './CustomerPanel/Category'
 import homeimg from "../img/homeimg.jpg";
 import About from './About';
+import Contact from "./Contact";
 
 const Home = () => {
 
@@ -19,6 +20,7 @@ const Home = () => {
         <Category />
         <div className='mb-5'></div>
         <About />
+        <Contact />
       </Layout>
     </>
   )
