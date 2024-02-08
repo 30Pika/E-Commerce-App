@@ -21,9 +21,9 @@ body{
 
 /* =========================Navbar Css ======================= */
 
-.navbar{
+/* .navbar{
   background: var(--Champagne-color);
-}
+} */
 
 .active:hover{
   border-bottom: 1px solid black;

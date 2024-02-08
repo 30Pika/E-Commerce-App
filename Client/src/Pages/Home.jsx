@@ -12,7 +12,7 @@ const Home = () => {
       <Layout >
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-12 border border-3 border-dark">
+            <div className="col-md-12 g-0 border border-3 border-dark">
               <img src={homeimg} class="card-img-top" alt="..." />
             </div>
           </div>
