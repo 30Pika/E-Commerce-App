@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg border-2 border-bottom border-dark shadow">
+            <nav className="navbar navbar-expand-lg bg-light border-2 border-bottom border-dark shadow">
                 <div className="container-fluid ">
                     <h3 className="fw-bold ms-3"><i class='bx bxl-shopify fs-2 fw-bold me-2' ></i>E-Commerce App</h3>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -78,48 +78,5 @@ const Header = () => {
         </>
     )
 }
-
-{/* <li className="nav-item">
-    <Link style={{ width: "125px" }} className="nav-link text-white fs-5"
-        to="/"></Link>
-</li>
-{
-    auth ?
-        <>
-            {
-                auth.admin_email === "admin@gmail.com" ?
-                    <>
-                        <li className="nav-item ">
-                            <Link style={{ width: "135px" }} className="nav-link text-white fs-5"
-                                to="/AddProduct">Add Product</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link style={{ width: "120px" }} className="nav-link text-white fs-5"
-                                to="/ProductList">Product List</Link>
-                        </li>
-                    </>
-                    :
-                    <>
-                        <li className="nav-item">
-                            <Link className="nav-link text-white fs-5"
-                                to="/Cart">Cart</Link>
-                        </li>
-                    </>
-            }
-            <li className="nav-item">
-                <Link onClick={Logout}
-                    className="nav-link text-white fs-5" to="/Login">
-                    Logout...</Link>
-            </li>
-        </>
-        :
-        <>
-            <li className='nav-item '>
-                <Link to="/Login" className=' nav-link text-white fs-5 '>
-                    Login </Link>
-            </li>
-        </>
-}
-                            </ul > */}
 
 export default Header

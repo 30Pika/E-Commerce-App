@@ -10,6 +10,7 @@ const AddProduct = () => {
     const [subcategory, setsubcategory] = useState("");
     const [company, setcompany] = useState("");
     const [quntity, setquntity] = useState("");
+    const [image, setimage] = useState("");
 
     const handleform = async (e) => {
         e.preventDefault();
@@ -17,14 +18,17 @@ const AddProduct = () => {
         if (!name || !price || !category || !company || !quntity) {
             alert("Please Fill The All Filed...!");
         } else {
+            const formdata = new FormData();
+            formdata.append("name",name);
+            formdata.append("price",price);
+            formdata.append("category",category);
+            formdata.append("subcategory",subcategory);
+            formdata.append("userId",userId);
+            formdata.append("company",company);
+            formdata.append("quntity",quntity);
+            formdata.append("image",image);
             await axios.post("http://localhost:2030/E-Commerce/api/product", {
-                name: name,
-                price: price,
-                category: category,
-                subcategory: subcategory,
-                userId: userId,
-                company: company,
-                quntity: quntity
+                formdata
             }, {
                 headers: { authorization: JSON.parse(localStorage.getItem('token')) }
             }).then((res) => {
@@ -59,6 +63,8 @@ const AddProduct = () => {
                                     value={company} className='form-control mb-3 fw-bold shadow border-3' />
                                 <input type="text" placeholder='Product Quntity' onChange={(e) => setquntity(e.target.value)}
                                     value={quntity} className='form-control mb-3 fw-bold shadow border-3' />
+                                <input type="file" onChange={(e) => setimage(e.target.files[0])}
+                                    className='form-control mb-3 fw-bold shadow border-3' />
                                 <button className="btn btn-secondary border offset-sm-5 mb-3" type='submit'>
                                     Submit</button>
                             </form>
