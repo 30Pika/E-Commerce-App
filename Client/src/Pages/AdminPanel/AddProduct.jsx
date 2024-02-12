@@ -19,27 +19,27 @@ const AddProduct = () => {
             alert("Please Fill The All Filed...!");
         } else {
             const formdata = new FormData();
-            formdata.append("name",name);
-            formdata.append("price",price);
-            formdata.append("category",category);
-            formdata.append("subcategory",subcategory);
-            formdata.append("userId",userId);
-            formdata.append("company",company);
-            formdata.append("quntity",quntity);
-            formdata.append("image",image);
-            await axios.post("http://localhost:2030/E-Commerce/api/product", {
+            formdata.append('name', name);
+            formdata.append('price', price);
+            formdata.append('category', category);
+            formdata.append('subcategory', subcategory);
+            formdata.append('userId', userId);
+            formdata.append('company', company);
+            formdata.append('quntity', quntity);
+            formdata.append('image', image);
+            await axios.post("http://localhost:2030/E-Commerce/api/product",
                 formdata
-            }, {
-                headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-            }).then((res) => {
-                if (res) {
-                    alert("Add Product Successfully...");
-                    setname(""); setprice(""); setcategory(""); setcompany(""); setsubcategory("");
-                    setquntity("");
-                }
-            }).catch((err) => {
-                console.log(`Error From Add Product Page ${err}`);
-            });
+                , {
+                    headers: { authorization: JSON.parse(localStorage.getItem('token')) }
+                }).then((res) => {
+                    if (res) {
+                        alert("Add Product Successfully...");
+                        setname(""); setprice(""); setcategory(""); setcompany(""); setsubcategory("");
+                        setquntity(""); setimage("");
+                    }
+                }).catch((err) => {
+                    console.log(`Error From Add Product Page ${err}`);
+                });
         };
     };
 
@@ -48,7 +48,7 @@ const AddProduct = () => {
             <Layout>
                 <div className="container-fluid ">
                     <div className="row">
-                        <div className="col-md-5 offset-md-4 mt-4 border border-2 border-dark rounded">
+                        <div className="col-md-5 offset-md-4 my-2 border border-2 border-dark rounded">
                             <form onSubmit={handleform}>
                                 <h1 className='text-center'>Add Product</h1>
                                 <input type="text" placeholder='Product Name' onChange={(e) => setname(e.target.value)}
@@ -63,7 +63,8 @@ const AddProduct = () => {
                                     value={company} className='form-control mb-3 fw-bold shadow border-3' />
                                 <input type="text" placeholder='Product Quntity' onChange={(e) => setquntity(e.target.value)}
                                     value={quntity} className='form-control mb-3 fw-bold shadow border-3' />
-                                <input type="file" onChange={(e) => setimage(e.target.files[0])}
+                                <input type="file" accept=".jpg, .jpeg, .png"
+                                onChange={(e) => setimage(e.target.files[0])} id="imagefile"
                                     className='form-control mb-3 fw-bold shadow border-3' />
                                 <button className="btn btn-secondary border offset-sm-5 mb-3" type='submit'>
                                     Submit</button>

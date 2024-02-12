@@ -8,7 +8,7 @@ const ProductsSche = new mongoose.Schema({
     userId: { type: String, require: true },
     company: { type: String, require: true },
     quntity: { type: String, require: true },
-    image: { type: String, require:true }
+    image: { type: Object, require:true }
 });
 
 export default mongoose.model('products', ProductsSche);

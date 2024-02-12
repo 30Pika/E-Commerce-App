@@ -15,6 +15,8 @@ const Category = () => {
         axios.get(`http://localhost:2030/E-Commerce/api/buyproduct/product/${key}`
         ).then((res) => {
             setdata(res.data.data);
+            console.log(data, "lkjljlkj");
+            console.log(data.image);
         }).catch((err) => {
             console.log(`Error From Loop Product List Page ${err}`);
         })
@@ -72,7 +74,12 @@ const Category = () => {
                                         return (
                                             <>
                                                 <div class="card m-3 shadow" style={{ width: "14rem" }}>
-                                                    <img src={bag} class="card-img-top" alt="..." />
+                                                    {
+                                                        itm.image ?
+                                                            <img src={itm.image} class="card-img-top" alt="..." />
+                                                            :
+                                                            <img src={bag} class="card-img-top" alt="..." />
+                                                    }
                                                     <div class="card-body">
                                                         <h5 class="card-title ">Name : {itm.name}</h5>
                                                         <div>

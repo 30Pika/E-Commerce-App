@@ -15,6 +15,7 @@ import ChangeStatusCon from "../Controller/ChangeStatusCon.js";
 import FetchCategory from "../Controller/FetchCategory.js";
 import FetchSubCategory from "../Controller/FetchSubCategory.js";
 import FetchProduct from "../Controller/FetchProduct.js";
+import upload from "../Middleware/FileMulter.js";
 
 //Router Object
 const router = express.Router();
@@ -27,7 +28,7 @@ router.post("/register", RegisterCon);
 router.post("/login", LoginCon);
 
 // Product Storing Api
-router.post("/product", VerifyToken, ProductsCon);
+router.post("/product", VerifyToken, upload.single('image'), ProductsCon);
 
 //Product List Fetching Api
 router.get("/product", VerifyToken, ProductListCon);

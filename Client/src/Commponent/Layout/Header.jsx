@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
 
 const Header = () => {
 
     const auth = JSON.parse(localStorage.getItem("user"));
-    if (auth) {
-        var id = auth._id;
-    }
 
     const Logout = () => {
         localStorage.clear();
     }
-
-    // const [len, setlength] = useState();
-    var len;
-    const BuyData = async () => {
-        await axios.get(`http://localhost:2030/E-Commerce/api/buyproduct/cart/${id}`, {
-            headers: { authorization: JSON.parse(localStorage.getItem('token')) }
-        }).then((res) => {
-            if (res.data) {
-                // setlength(res.data.result.length);
-                len = res.data.result.length;
-            }
-        }).catch((err) => {
-            console.log(`Error From Header Page Cart Per Customer Count  : ${err}`);
-        })
-    }
-
-    useEffect(() => {
-        BuyData();
-    }, []);
 
     return (
         <>

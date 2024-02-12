@@ -39,7 +39,7 @@ const Category = () => {
                                 newCategorys.map((itm, index) => {
                                     return (
                                         <>
-                                            <div class="card m-3 shadow" style={{ width: "14rem" }}
+                                            <div class="card my-5 m-3 shadow" style={{ width: "14rem" }}
                                                 onClick={() => GoToSubCategory(itm)}>
                                                 <img src={bag} class="card-img-top" alt="..." />
                                                 <div class="card-body">
