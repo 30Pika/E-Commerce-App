@@ -32,7 +32,7 @@ const ProductList = () => {
                 console.log(`Error Form Product Delete function ${err}`);
             })
     }
-    const Update = (id, name, price, quntity, category, subcategory, company) => {
+    const Update = (id, name, price, quntity, category, subcategory, company, image) => {
         localStorage.setItem("id", id);
         localStorage.setItem("name", name);
         localStorage.setItem("price", price);
@@ -40,6 +40,7 @@ const ProductList = () => {
         localStorage.setItem("company", company);
         localStorage.setItem("category", category);
         localStorage.setItem("subcategory", subcategory);
+        localStorage.setItem("image", image);
     }
 
     const Search = async (event) => {
@@ -106,10 +107,11 @@ const ProductList = () => {
                                                         <td>{itm.subcategory}</td>
                                                         <td>{itm.company}</td>
                                                         <td><Link to="/Update"
-                                                            onClick={() => Update(itm._id, itm.name, itm.price, itm.quntity, itm.category, itm.subcategory, itm.company)}>
+                                                            onClick={() => Update(itm._id, itm.name, itm.price, itm.quntity,
+                                                                itm.category, itm.subcategory, itm.company, itm.image)}>
                                                             <i class='bx bx-edit-alt fs-4 text-info'></i></Link></td>
-                                                        <td onClick={() => { if (window.confirm("Are You Sure To Delete Data...!")) { Delete(itm._id) } }}
-                                                        ><i className='bx bx-trash fs-4 text-danger'></i></td>
+                                                        <td onClick={() => { if (window.confirm("Are You Sure To Delete Data...!")) { Delete(itm._id) } }}>
+                                                            <i className='bx bx-trash fs-4 text-danger'></i></td>
                                                     </tr>
                                                 </>
                                             )

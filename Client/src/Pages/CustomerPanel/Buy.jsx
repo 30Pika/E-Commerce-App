@@ -83,12 +83,22 @@ const ProductList = () => {
                                                             <h6>Categroy : {itm.category}</h6>
                                                             <h6>Categroy : {itm.subcategory}</h6>
                                                         </div>
-                                                        <div className="d-flex justify-content-around">
+                                                        <div className="d-flex justify-content-between">
                                                             <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
-                                                            <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
-                                                                onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
-                                                                    itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
-                                                                Buy</button></Link>
+                                                            {
+                                                                itm.quntity == 0 ?
+                                                                    <>
+                                                                        <br />
+                                                                        <h5 className='text-danger'>Out_Of_Stock</h5>
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                        <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
+                                                                            onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
+                                                                                itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
+                                                                            Buy</button></Link>
+                                                                    </>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
