@@ -50,7 +50,13 @@ const Cart = () => {
                           return (
                             <>
                               <div class="card m-3 shadow" style={{ width: "14rem" }}>
-                                <img src={bag} class="card-img-top" alt="..." />
+                                {
+                                  itm.image ?
+                                    <img src={`http://localhost:2030/Images/` + itm.image.filename}
+                                      class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
+                                    :
+                                    <img src={bag} class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
+                                }
                                 <div class="card-body">
                                   <h5 class="card-title ">Name : {itm.name}</h5>
                                   <div>
@@ -58,11 +64,11 @@ const Cart = () => {
                                     <h6>Categroy : {itm.category}</h6>
                                     <h6>Buying Qut : {itm.quntity}</h6>
                                     <h6>Status : {itm.status}</h6>
-                                    <h6>Total Bill : {itm.bill}</h6>
+                                    <div className="d-flex justify-content-around">
+                                      <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
+                                    </div>
                                   </div>
-                                  <div className="d-flex justify-content-around">
-                                    <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
-                                  </div>
+                                  <h5>Total Bill : {itm.bill}</h5>
                                 </div>
                               </div>
                             </>

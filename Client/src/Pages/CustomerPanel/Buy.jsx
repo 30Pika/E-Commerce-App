@@ -65,46 +65,57 @@ const ProductList = () => {
                             </div>
                             <div className="d-flex flex-wrap justify-content-center shadow">
                                 {
-                                    data.map((itm) => {
-                                        return (
-                                            <>
-                                                <div class="card m-3 shadow" style={{ width: "14rem" }}>
-                                                    {
-                                                        itm.image ?
-                                                            <img src={`http://localhost:2030/Images/` + itm.image.filename}
-                                                                class="card-img-top img-thumbnail" alt="..." />
-                                                            :
-                                                            <img src={bag} class="card-img-top img-thumbnail" alt="..." />
-                                                    }
-                                                    <div class="card-body">
-                                                        <h5 class="card-title ">Name : {itm.name}</h5>
-                                                        <div>
-                                                            <h6>Company : {itm.company}</h6>
-                                                            <h6>Categroy : {itm.category}</h6>
-                                                            <h6>Categroy : {itm.subcategory}</h6>
-                                                        </div>
-                                                        <div className="d-flex justify-content-between">
-                                                            <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
-                                                            {
-                                                                itm.quntity == 0 ?
-                                                                    <>
-                                                                        <br />
-                                                                        <h5 className='text-danger'>Out_Of_Stock</h5>
-                                                                    </>
-                                                                    :
-                                                                    <>
-                                                                        <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
-                                                                            onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
-                                                                                itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
-                                                                            Buy</button></Link>
-                                                                    </>
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        )
-                                    })
+                                    data ?
+                                        <>
+                                            {
+                                                data.map((itm) => {
+                                                    return (
+                                                        <>
+                                                            <div class="card m-3 shadow" style={{ width: "14rem" }}>
+                                                                {
+                                                                    itm.image ?
+                                                                        <img src={`http://localhost:2030/Images/` + itm.image.filename}
+                                                                            class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
+                                                                        :
+                                                                        <img src={bag} class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
+                                                                }
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title ">Name : {itm.name}</h5>
+                                                                    <div>
+                                                                        <h6>Company : {itm.company}</h6>
+                                                                        <h6>Categroy : {itm.category}</h6>
+                                                                        <h6>Categroy : {itm.subcategory}</h6>
+                                                                    </div>
+                                                                    {
+                                                                        itm.quntity == 0 ?
+                                                                            <>
+                                                                                <div className="justify-content-between">
+                                                                                    <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
+                                                                                    <h5 className='text-danger'>Out_Of_Stock</h5>
+                                                                                </div>
+                                                                            </>
+                                                                            :
+                                                                            <>
+                                                                                <div className="d-flex justify-content-between">
+                                                                                    <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
+                                                                                    <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
+                                                                                        onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
+                                                                                            itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
+                                                                                        Buy</button></Link>
+                                                                                </div>
+                                                                            </>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </>
+                                                    )
+                                                })
+                                            }
+                                        </>
+                                        :
+                                        <>
+                                            <h1>No data : Please Enter New Data First As Admin...</h1>
+                                        </>
                                 }
                             </div>
                         </div>
