@@ -33,7 +33,8 @@ const StoreBuyProduct = () => {
       price: buydata.price,
       quntity: quntity,
       bill: bill,
-      status: buydata.status
+      status: buydata.status,
+      image: buydata.image
     },
       {
         headers: { authorization: JSON.parse(localStorage.getItem('token')) }
@@ -69,11 +70,16 @@ const StoreBuyProduct = () => {
       <Layout>
         <div className="container-fluid my-2">
           <div className="row">
-            <div className="col-md-3 offset-md-5 border border-2 border-dark justify-content-center">
+            <div className="col-md-3 offset-md-5 justify-content-center">
               {buydata ?
                 <>
                   <div class="card " style={{ width: "20rem" }}>
-                    <img src={bag} class="card-img-top" alt="..." />
+                    {
+                      buydata.image ?
+                        <img src={`http://localhost:2030/Images/` + buydata.image.filename} class="card-img-top" alt="..." />
+                        :
+                        <img src={bag} class="card-img-top" alt="..." />
+                    }
                     <div class="card-body">
                       <h5 class="card-title ">Name : {buydata.name}</h5>
                       <div>

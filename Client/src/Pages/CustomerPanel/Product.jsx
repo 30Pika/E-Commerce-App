@@ -15,8 +15,6 @@ const Category = () => {
         axios.get(`http://localhost:2030/E-Commerce/api/buyproduct/product/${key}`
         ).then((res) => {
             setdata(res.data.data);
-            console.log(data, "lkjljlkj");
-            console.log(data.image);
         }).catch((err) => {
             console.log(`Error From Loop Product List Page ${err}`);
         })
@@ -43,8 +41,8 @@ const Category = () => {
         setEmpty("");
     }
 
-    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity, status) => {
-        const buydata = { _id, name, company, category, subcategory, price, quntity, status };
+    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity, status, image) => {
+        const buydata = { _id, name, company, category, subcategory, price, quntity, status, image };
         localStorage.setItem("buydata", JSON.stringify(buydata));
     }
 
@@ -76,7 +74,8 @@ const Category = () => {
                                                 <div class="card m-3 shadow" style={{ width: "14rem" }}>
                                                     {
                                                         itm.image ?
-                                                            <img src={itm.image} class="card-img-top" alt="..." />
+                                                            <img src={`http://localhost:2030/Images/` + itm.image.filename}
+                                                                class="card-img-top" alt="..." />
                                                             :
                                                             <img src={bag} class="card-img-top" alt="..." />
                                                     }
@@ -91,7 +90,7 @@ const Category = () => {
                                                             <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
                                                             <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
                                                                 onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
-                                                                    itm.subcategory, itm.price, itm.quntity, itm.status)}>
+                                                                    itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
                                                                 Buy</button></Link>
                                                         </div>
                                                     </div>

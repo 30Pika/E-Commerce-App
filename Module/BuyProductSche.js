@@ -9,7 +9,8 @@ const BuySche = new mongoose.Schema({
     company: { type: String, require: true },
     quntity: { type: String, require: true },
     bill: { type: String, require: true },
-    status: { type: String, require: true, default: "pending" }
+    status: { type: String, require: true, default: "pending" },
+    image:{type:Object, require:true}
 })
 
 export default mongoose.model('buyproducts', BuySche);

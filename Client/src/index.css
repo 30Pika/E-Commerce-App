@@ -22,7 +22,7 @@ body{
 /* =========================Navbar Css ======================= */
 
 .navbar{
-  background: gray;
+  background: rgb(93, 93, 93);
 }
 
 .active:hover{
@@ -40,6 +40,11 @@ body{
 }
 .footer-li:hover{
   border-bottom:#fff;
+}
+
+/* ===========================Home css============================= */
+.carousel-inner{
+  height: 90vh;
 }
 
 /* =========contact us ========= */

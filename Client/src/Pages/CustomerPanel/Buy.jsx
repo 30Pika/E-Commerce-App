@@ -45,8 +45,8 @@ const ProductList = () => {
         setEmpty("");
     }
 
-    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity, status) => {
-        const buydata = { _id, name, company, category, subcategory, price, quntity, status };
+    const ConfirmBuy = (_id, name, company, category, subcategory, price, quntity, status, image) => {
+        const buydata = { _id, name, company, category, subcategory, price, quntity, status, image };
         localStorage.setItem("buydata", JSON.stringify(buydata));
     }
 
@@ -72,9 +72,9 @@ const ProductList = () => {
                                                     {
                                                         itm.image ?
                                                             <img src={`http://localhost:2030/Images/` + itm.image.filename}
-                                                                class="card-img-top" alt="..." />
+                                                                class="card-img-top img-thumbnail" alt="..." />
                                                             :
-                                                            <img src={bag} class="card-img-top" alt="..." />
+                                                            <img src={bag} class="card-img-top img-thumbnail" alt="..." />
                                                     }
                                                     <div class="card-body">
                                                         <h5 class="card-title ">Name : {itm.name}</h5>
@@ -87,7 +87,7 @@ const ProductList = () => {
                                                             <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>
                                                             <Link to="/ConfirmBuy"><button type="submit" className='btn btn-primary '
                                                                 onClick={() => ConfirmBuy(itm._id, itm.name, itm.company, itm.category,
-                                                                    itm.subcategory, itm.price, itm.quntity, itm.status)}>
+                                                                    itm.subcategory, itm.price, itm.quntity, itm.status, itm.image)}>
                                                                 Buy</button></Link>
                                                         </div>
                                                     </div>
