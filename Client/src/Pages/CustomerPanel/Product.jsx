@@ -75,9 +75,9 @@ const Category = () => {
                                                     {
                                                         itm.image ?
                                                             <img src={`http://localhost:2030/Images/` + itm.image.filename}
-                                                                class="card-img-top" alt="..." />
+                                                                class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
                                                             :
-                                                            <img src={bag} class="card-img-top" alt="..." />
+                                                            <img src={bag} class="card-img-top img-thumbnail" style={{ height: "35vh" }} alt="..." />
                                                     }
                                                     <div class="card-body">
                                                         <h5 class="card-title ">Name : {itm.name}</h5>
