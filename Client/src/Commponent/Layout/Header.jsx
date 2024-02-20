@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg border-2 border-bottom border-dark shadow">
+            <nav className="navbar navbar-expand-lg border-2 bg-dark border-bottom border-dark shadow">
                 <div className="container-fluid ">
                     <h3 className="fw-bold ms-3 text-light"><i class='bx bxl-shopify fs-2 fw-bold me-2' ></i>E-Commerce App</h3>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -60,7 +60,7 @@ const Header = () => {
                                         }
                                         <li className="nav-item">
                                             <Link onClick={Logout}
-                                                className="nav-link text-light fs-5 fw-bold" to="/">
+                                                className="nav-link active text-light fs-5 fw-bold" to="/">
                                                 Logout...</Link>
                                         </li>
                                     </>
