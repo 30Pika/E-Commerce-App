@@ -57,7 +57,7 @@ const AddProduct = () => {
                                     value={price} className='form-control mb-3 fw-bold shadow border-3' />
                                 {/* <input type="text" placeholder='Product Category' onChange={(e) => setcategory(e.target.value)}
                                     value={category} className='form-control mb-3 fw-bold shadow border-3' /> */}
-                                <label htmlFor="dropdownMenuButton1 " className='text-info fw-bold'>
+                                <label htmlFor="dropdownMenuButton1 " className='fw-bold'>
                                     Category List
                                 </label>
                                 <div class="dropdown">
@@ -71,12 +71,13 @@ const AddProduct = () => {
                                         }
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li onClick={(e) => setcategory("Electronics")}>Electronics</li>
-                                        <li onClick={(e) => setcategory("Pharmacys")}>Pharmacys</li>
-                                        <li onClick={(e) => setcategory("Home Appliances")}>Home Appliances</li>
-                                        <li onClick={(e) => setcategory("Travels")}>Travels</li>
-                                        <li onClick={(e) => setcategory("Grocerys")}>Grocerys</li>
-                                        <li onClick={(e) => setcategory("Furniture")}>Furniture</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Electronics")}>Electronics</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Pharmacys")}>Pharmacys</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Sports")}>Sports</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Home Appliances")}>Home Appliances</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Travels")}>Travels</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Grocerys")}>Grocerys</li>
+                                        <li className='ms-3' onClick={(e) => setcategory("Furniture")}>Furniture</li>
                                     </ul>
                                 </div>
                                 <input type="text" placeholder='Product Sub-Category' onChange={(e) => setsubcategory(e.target.value)}
