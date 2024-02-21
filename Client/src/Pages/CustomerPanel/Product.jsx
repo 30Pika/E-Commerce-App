@@ -84,7 +84,7 @@ const Category = () => {
                                                         <div>
                                                             <h6>Company : {itm.company}</h6>
                                                             <h6>Categroy : {itm.category}</h6>
-                                                            <h6>Categroy : {itm.subcategory}</h6>
+                                                            <h6>SubCategroy : {itm.subcategory}</h6>
                                                         </div>
                                                         <div className="d-flex justify-content-around">
                                                             <div className='fs-5'><i className='bx bx-rupee '></i>{itm.price} /-</div>

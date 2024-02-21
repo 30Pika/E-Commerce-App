@@ -84,7 +84,7 @@ const ProductList = () => {
                                                                     <div>
                                                                         <h6>Company : {itm.company}</h6>
                                                                         <h6>Categroy : {itm.category}</h6>
-                                                                        <h6>Categroy : {itm.subcategory}</h6>
+                                                                        <h6>SubCategroy : {itm.subcategory}</h6>
                                                                     </div>
                                                                     {
                                                                         itm.quntity == 0 ?
