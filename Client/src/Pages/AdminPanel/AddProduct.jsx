@@ -55,8 +55,30 @@ const AddProduct = () => {
                                     value={name} className='form-control mb-3 fw-bold shadow border-3' />
                                 <input type="text" placeholder='Product Price' onChange={(e) => setprice(e.target.value)}
                                     value={price} className='form-control mb-3 fw-bold shadow border-3' />
-                                <input type="text" placeholder='Product Category' onChange={(e) => setcategory(e.target.value)}
-                                    value={category} className='form-control mb-3 fw-bold shadow border-3' />
+                                {/* <input type="text" placeholder='Product Category' onChange={(e) => setcategory(e.target.value)}
+                                    value={category} className='form-control mb-3 fw-bold shadow border-3' /> */}
+                                <label htmlFor="dropdownMenuButton1 " className='text-info fw-bold'>
+                                    Category List
+                                </label>
+                                <div class="dropdown">
+                                    <button class="form-control mb-3 fw-bold shadow border-3 text-start dropdown-toggle"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {
+                                            !category ?
+                                                <>Ex :- Electronics</>
+                                                :
+                                                <>{category}</>
+                                        }
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li onClick={(e) => setcategory("Electronics")}>Electronics</li>
+                                        <li onClick={(e) => setcategory("Pharmacys")}>Pharmacys</li>
+                                        <li onClick={(e) => setcategory("Home Appliances")}>Home Appliances</li>
+                                        <li onClick={(e) => setcategory("Travels")}>Travels</li>
+                                        <li onClick={(e) => setcategory("Grocerys")}>Grocerys</li>
+                                        <li onClick={(e) => setcategory("Furniture")}>Furniture</li>
+                                    </ul>
+                                </div>
                                 <input type="text" placeholder='Product Sub-Category' onChange={(e) => setsubcategory(e.target.value)}
                                     value={subcategory} className='form-control mb-3 fw-bold shadow border-3' />
                                 <input type="text" placeholder='Product Company' onChange={(e) => setcompany(e.target.value)}
@@ -64,7 +86,7 @@ const AddProduct = () => {
                                 <input type="text" placeholder='Product Quntity' onChange={(e) => setquntity(e.target.value)}
                                     value={quntity} className='form-control mb-3 fw-bold shadow border-3' />
                                 <input type="file" accept=".jpg, .jpeg, .png"
-                                onChange={(e) => setimage(e.target.files[0])} id="imagefile"
+                                    onChange={(e) => setimage(e.target.files[0])} id="imagefile"
                                     className='form-control mb-3 fw-bold shadow border-3' />
                                 <button className="btn btn-secondary border offset-sm-5 mb-3" type='submit'>
                                     Submit</button>
