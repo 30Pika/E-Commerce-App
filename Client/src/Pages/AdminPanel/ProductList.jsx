@@ -7,7 +7,8 @@ const ProductList = () => {
 
     const navigate = useNavigate();
     const [data, setdata] = useState([]);
-    const [Empty, setEmpty] = useState("");
+    const [searchKey, setSearchKey] = useState("");
+    // const [searchFiled, setSearchFiled] = useState("");
 
     function getData() {
         axios.get("http://localhost:2030/E-Commerce/api/product",
@@ -21,6 +22,7 @@ const ProductList = () => {
     }
     useEffect(() => {
         getData();
+        Reset();
     }, [])
     const Delete = async (id) => {
         await axios.delete(`http://localhost:2030/E-Commerce/api/product/${id}`,
@@ -44,9 +46,8 @@ const ProductList = () => {
     }
 
     const Search = async (event) => {
-        const key = event.target.value;
-        setEmpty(key);
-        await axios.get(`http://localhost:2030/E-Commerce/api/product/search/${key}`,
+        setSearchKey(event.target.value);
+        await axios.get(`http://localhost:2030/E-Commerce/api/product/search/${searchKey}`,
             {
                 headers: { authorization: JSON.parse(localStorage.getItem('token')) }
             }).then((res) => {
@@ -60,7 +61,8 @@ const ProductList = () => {
 
     const Reset = () => {
         getData();
-        setEmpty("");
+        // setSearchFiled("");
+        setSearchKey("");
     }
 
     return (
@@ -73,10 +75,27 @@ const ProductList = () => {
                                 <caption className='fw-bold text-center text-dark fs-2'>Products List</caption>
                                 <caption >
                                     <div className='d-flex flex-row'>
-                                        <input type="text" placeholder='Search' value={Empty}
+                                        {/* <div className="dropdown">
+                                            <button className="dropdown-toggle p-1 border-2 me-2 fs-5" style={{ width: "160px" }} type="button" id="dropdownMenuButton1"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {
+                                                    searchFiled ?
+                                                        searchFiled
+                                                        :
+                                                        <>Select Filed</>
+                                                }
+                                            </button>
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li className="dropdown-item" onClick={() => setSearchFiled("name")}>Product Name</li>
+                                                <li className="dropdown-item" onClick={() => setSearchFiled("category")}>Product Category</li>
+                                                <li className="dropdown-item" onClick={() => setSearchFiled("subcategory")}>Product Sub-Category</li>
+                                                <li className="dropdown-item" onClick={() => setSearchFiled("company")}>Product Company</li>
+                                            </ul>
+                                        </div> */}
+                                        <input type="text" placeholder='Search' value={searchKey}
                                             onChange={Search}
-                                            className='p-1 w-25 border-3 text-info fs-5 fw-bold me-1' />
-                                        <i class='bx bx-x fs-2 p-1 fw-bold border border-dark border-3'
+                                            className='p-1 w-25 border-2 text-info fs-5 fw-bold me-1' />
+                                        <i class='bx bx-x p-1 fs-3 fw-bold border border-dark border-2'
                                             onClick={Reset}></i>
                                     </div>
                                 </caption>

@@ -2,6 +2,11 @@ import ProductsSche from "../Module/ProductsSche.js";
 
 const ProductSearchCon = async (req, res) => {
     try {
+        // const { filed, filedname } = req.params.key;
+        // const obj = req.params.key;
+        // console.log(obj.searchKey)
+        // console.log(req.params.key)
+        // console.log(filed, filedname);
         const data = await ProductsSche.find({
             $or: [
                 { name: { $regex: req.params.key } }

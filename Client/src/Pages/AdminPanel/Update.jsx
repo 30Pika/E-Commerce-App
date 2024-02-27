@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Layout from '../../Commponent/Layout/Layout';
+import { useNavigate } from 'react-router-dom';
 
 const Update = () => {
+
+    const navigate = useNavigate();
 
     const [name, setname] = useState("");
     const [price, setprice] = useState("");
@@ -41,6 +44,7 @@ const Update = () => {
                     if (res.data) {
                         alert("Add Product Successfully...");
                         setname(""); setprice(""); setcategory(""); setsubcategory(""); setcompany(""); setquntity("");
+                        navigate("/ProductList");
                     }
                 }).catch((err) => {
                     console.log(`Error From Add Product Page ${err}`);
